@@ -1,0 +1,1 @@
+add_executable(valiutos main.cpp)
