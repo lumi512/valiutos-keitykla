@@ -8,11 +8,17 @@ using namespace std;
 
 enum Action
 {
+	ACTION_INVALID,
+
 	ACTION_NONE,
 	ACTION_COMPARE,
 	ACTION_BUY,
-	ACTION_SELL
+	ACTION_SELL,
+
+	ACTION_MAX
 };
 
 extern bool g_quit;
 extern Action g_action;
+
+void reset_state();

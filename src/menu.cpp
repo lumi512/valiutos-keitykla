@@ -59,13 +59,16 @@ void main_menu()
 {
 	draw_main_menu();
 
-	int sel;
-	cin >> sel;
+	string str;
+	cin >> str;
 
-	if (cin.fail())
+	int sel = atoi(str.c_str());
+	if (cin.fail() || sel <= ACTION_INVALID || sel >= ACTION_MAX)
 	{
 		cout << "Neteisingas pasirinkimas." << endl;
 		clear_input();
+
+		g_action = ACTION_NONE;
 		return;
 	}
 
