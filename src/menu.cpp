@@ -5,6 +5,8 @@ int g_inputResult;
 
 bool input_get_selection(int minval, int maxval)
 {
+	cout << "> ";
+
 	string str;
 	cin >> str;
 

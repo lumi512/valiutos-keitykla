@@ -1,29 +1,19 @@
 #include "main.h"
 #include "menu.h"
+#include "actions.h"
 
 void parse_menu_selection(int sel)
 {
 	switch (sel)
 	{
-		case 1:
-			g_action = ACTION_COMPARE;
-			break;
-
-		case 2:
-			g_action = ACTION_BUY;
-			break;
-
-		case 3:
-			g_action = ACTION_SELL;
-			break;
-
-		case 4:
-			g_quit = true;
-			break;
+		case 1: set_action(ACTION_COMPARE); break;
+		case 2: set_action(ACTION_BUY); break;
+		case 3: set_action(ACTION_SELL); break;
+		case 4: g_quit = true; break;
 
 		default:
 			cout << "Neteisingas pasirinkimas." << endl;
-			g_action = ACTION_NONE;
+			set_action(ACTION_NONE);
 	}
 }
 
@@ -49,5 +39,5 @@ void main_menu()
 	if (input_get_selection(ACTION_INVALID, ACTION_MAX))
 		parse_menu_selection(input_get_result());
 	else
-		g_action = ACTION_NONE;
+		set_action(ACTION_NONE);
 }

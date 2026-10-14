@@ -7,11 +7,11 @@
 #include "actions.h"
 
 bool g_quit = false;
-Action g_action = ACTION_NONE;
 
 void reset_state()
 {
-	g_action = ACTION_NONE;
+	set_action(ACTION_NONE);
+	g_lastAction = ACTION_INVALID;
 	g_currency = CURRENCY_INVALID;
 }
 
@@ -21,7 +21,7 @@ int main()
 
 	while (!g_quit)
 	{
-		if (g_action != ACTION_NONE)
+		if (g_action != ACTION_NONE && g_action != ACTION_END)
 		{
 			currency_select();
 			if (g_currency == CURRENCY_INVALID)
@@ -36,6 +36,10 @@ int main()
 
 			case ACTION_COMPARE:
 				action_compare();
+				break;
+
+			case ACTION_END:
+				action_end();
 				break;
 				
 			default:
