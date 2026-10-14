@@ -55,18 +55,8 @@ void currency_select()
 {
 	draw_currency_menu();
 
-	string str;
-	cin >> str;
-	
-	int sel = atoi(str.c_str());
-	if (cin.fail() || sel <= CURRENCY_INVALID || sel >= CURRENCY_MAX)
-	{
-		cout << "Neteisingas pasirinkimas." << endl;
-		clear_input();
-
+	if (input_get_selection(CURRENCY_INVALID, CURRENCY_MAX))
+		g_currency = (Currency)input_get_result();
+	else
 		g_currency = CURRENCY_INVALID;
-		return;
-	}
-
-	g_currency = (Currency)sel;
 }

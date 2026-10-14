@@ -2,7 +2,7 @@
 #include <iomanip>
 
 #include "main.h"
-#include "menu.h"
+#include "main_menu.h"
 #include "currency.h"
 #include "actions.h"
 

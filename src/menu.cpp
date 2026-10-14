@@ -1,4 +1,29 @@
 #include "main.h"
+#include "menu.h"
+
+int g_inputResult;
+
+bool input_get_selection(int minval, int maxval)
+{
+	string str;
+	cin >> str;
+
+	int sel = atoi(str.c_str());
+	if (cin.fail() || (minval != -1 && sel <= minval) || (maxval != -1 && sel >= maxval))
+	{
+		cout << "Neteisingas pasirinkimas." << endl;
+		clear_input();
+
+		g_inputResult = -1;
+		return false;
+	}
+
+	g_inputResult = sel;
+	return true;
+}
+
+int input_get_result()
+{ return g_inputResult; }
 
 void clear_input()
 {
@@ -6,71 +31,15 @@ void clear_input()
 	cin.ignore(numeric_limits<streamsize>::max(), '\n');
 }
 
-void print_title(const char *str)
+void print_line()
 {
 	const char *line = "---------------------------------------------------";
-
-	cout << line << endl
-		<< str << endl
-		<< line << endl;
+	cout << line << endl;
 }
 
-void parse_menu_selection(int sel)
+void print_title(const char *str)
 {
-	switch (sel)
-	{
-		case 1:
-			g_action = ACTION_COMPARE;
-			break;
-
-		case 2:
-			g_action = ACTION_BUY;
-			break;
-
-		case 3:
-			g_action = ACTION_SELL;
-			break;
-
-		case 4:
-			g_quit = true;
-			break;
-
-		default:
-			cout << "Neteisingas pasirinkimas." << endl;
-	}
-}
-
-void draw_main_menu()
-{
-	print_title("MENIU");
-
-	const char *menu_arr[4] = {
-		"Valiutos kurso palyginimas su euru",
-		"Valiutos pirkimas (EUR -> pasirinkta valiuta)",
-		"Valiutos pardavimas (pasirinkta valiuta -> EUR)",
-		"Iseiti"
-	};
-
-	for (int i = 0; i < ARRSIZE(menu_arr); i++)
-		cout << "(" << i + 1 << ") " << menu_arr[i] << endl;
-}
-
-void main_menu()
-{
-	draw_main_menu();
-
-	string str;
-	cin >> str;
-
-	int sel = atoi(str.c_str());
-	if (cin.fail() || sel <= ACTION_INVALID || sel >= ACTION_MAX)
-	{
-		cout << "Neteisingas pasirinkimas." << endl;
-		clear_input();
-
-		g_action = ACTION_NONE;
-		return;
-	}
-
-	parse_menu_selection(sel);
+	print_line();
+	cout << str << endl;
+	print_line();
 }
