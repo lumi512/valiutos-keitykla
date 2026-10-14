@@ -4,6 +4,30 @@
 
 Currency g_currency = CURRENCY_INVALID;
 
+const double g_currencyConversion[CURRENCY_MAX] = {
+	-1,			// INVALID
+
+	0.8729,		// GBP
+	1.1793,		// USD
+	104.6918,	// INR
+};
+
+const double g_currencyBuyConversion[CURRENCY_MAX] = {
+	-1,			// INVALID
+
+	0.8600,		// GBP
+	1.1460,		// USD
+	101.3862,	// INR
+};
+
+const double g_currencySellConversion[CURRENCY_MAX] = {
+	-1,			// INVALID
+
+	0.9220,		// GBP
+	1.2340,		// USD
+	107.8546,	// INR
+};
+
 const char *get_currency_name(Currency currency)
 {
 	switch (currency)

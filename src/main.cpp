@@ -1,7 +1,10 @@
 #include <iostream>
+#include <iomanip>
+
 #include "main.h"
 #include "menu.h"
 #include "currency.h"
+#include "actions.h"
 
 bool g_quit = false;
 Action g_action = ACTION_NONE;
@@ -14,6 +17,8 @@ void reset_state()
 
 int main()
 {
+	setprecision(2);
+
 	while (!g_quit)
 	{
 		if (g_action != ACTION_NONE)
@@ -27,6 +32,10 @@ int main()
 		{
 			case ACTION_NONE:
 				main_menu();
+				break;
+
+			case ACTION_COMPARE:
+				action_compare();
 				break;
 				
 			default:
