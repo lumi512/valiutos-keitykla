@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -8,4 +9,5 @@ using namespace std;
 
 extern bool g_quit;
 
-void reset_state();
+void reset_state(bool resetactions = true);
+string get_fixed_decimal(double val);

@@ -19,4 +19,6 @@ extern Action g_lastAction;
 void set_action(Action act);
 
 void action_compare();
+void action_buy();
+void action_sell();
 void action_end();

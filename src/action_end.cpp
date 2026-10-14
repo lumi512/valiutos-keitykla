@@ -8,6 +8,7 @@ void parse_action_end_selection(int sel)
 	{
 		case 1:
 			set_action(g_lastAction);
+			reset_state(false);
 			break;
 
 		case 2:
@@ -25,7 +26,7 @@ void parse_action_end_selection(int sel)
 }
 
 const char *action_end_arr[3] = {
-	"Pasirinkti kita valiuta",
+	"Vykdyti veiksma is naujo",
 	"Grizti atgal i meniu",
 	"Iseiti"
 };

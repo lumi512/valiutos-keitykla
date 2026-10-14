@@ -4,7 +4,7 @@
 
 Currency g_currency = CURRENCY_INVALID;
 
-const double g_currencyConversion[CURRENCY_MAX] = {
+const double g_currencyRate[CURRENCY_MAX] = {
 	-1,			// INVALID
 
 	0.8729,		// GBP
@@ -12,7 +12,7 @@ const double g_currencyConversion[CURRENCY_MAX] = {
 	104.6918,	// INR
 };
 
-const double g_currencyBuyConversion[CURRENCY_MAX] = {
+const double g_currencyBuyRate[CURRENCY_MAX] = {
 	-1,			// INVALID
 
 	0.8600,		// GBP
@@ -20,7 +20,7 @@ const double g_currencyBuyConversion[CURRENCY_MAX] = {
 	101.3862,	// INR
 };
 
-const double g_currencySellConversion[CURRENCY_MAX] = {
+const double g_currencySellRate[CURRENCY_MAX] = {
 	-1,			// INVALID
 
 	0.9220,		// GBP

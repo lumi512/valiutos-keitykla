@@ -7,11 +7,11 @@ void action_compare()
 {
 	print_title("Valiutos palyginimas");
 
-	const double convValue = g_currencyConversion[g_currency];
-	const double diff = convValue - 1.0;
+	const char *currName = get_currency_name(g_currency);
+	const double convValue = g_currencyRate[g_currency];
 
-	cout << "1 EUR - " << convValue << " " << get_currency_name(g_currency) << endl;
-	cout << "Skirtumas : " << diff << endl;
+	cout << "1 EUR -> " << get_fixed_decimal(1 * convValue) << " " << currName << endl;
+	cout << "1 " << currName << " -> " << get_fixed_decimal(1 / convValue) << " EUR" << endl;
 
 	set_action(ACTION_END);
 }
