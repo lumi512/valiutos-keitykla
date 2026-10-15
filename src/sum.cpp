@@ -19,7 +19,7 @@ void input_sum()
 	cin >> str;
 
 	double val = atof(str.c_str());
-	if (cin.fail() || val <= 0)
+	if (cin.fail() || val < 0)
 	{
 		cout << "Suma neteisingai ivesta arba yra netinkama." << endl;
 		clear_input();
